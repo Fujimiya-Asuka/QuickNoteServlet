@@ -22,7 +22,7 @@ public class downloadImageServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println(TAG+"doPost");
-        //处理请求体
+        //处理请求体内容
         Image image = HandleRequestImage.getImage(request);
         //如果请求图片不存在
 //        if (image==null){
