@@ -22,7 +22,6 @@ public class loginServlet extends HttpServlet {
         System.out.println("login_doPost");
         //设置编码，防止乱码
         resp.setCharacterEncoding("utf-8");
-
         User user = HandleRequestUser.getUser(req);
         Boolean b = new Dao().findUser(user.getUsername(),user.getPassword());
         System.out.println("允许登录？: "+ b );
