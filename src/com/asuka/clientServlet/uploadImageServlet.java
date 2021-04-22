@@ -39,7 +39,7 @@ public class uploadImageServlet extends HttpServlet {
         //如果目录不存在则创建目录
         File file = new File(realPath);
         if (!file.exists()){
-            file.mkdir();
+            file.mkdirs();
         }
         System.out.println("文件已经存放在："+realPath);
         System.out.println("文件名："+fileName);
