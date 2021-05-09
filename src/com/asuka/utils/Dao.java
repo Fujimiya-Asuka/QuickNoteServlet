@@ -234,7 +234,7 @@ public class Dao {
         String tableName = "note_"+user;
         System.out.println("修改内容为："+note.toString());
         String sql = "UPDATE "+tableName+" SET title=?,data=?,image=?,time=?,modify=? WHERE id=?";
-        int updateCount = jdbcTemplate.update(sql, note.getTitle(), note.getTime(), note.getImage(), note.getTime(), note.getModify(), note.getId());
+        int updateCount = jdbcTemplate.update(sql, note.getTitle(), note.getData(), note.getImage(), note.getTime(), note.getModify(), note.getId());
         if (updateCount>0){
             System.out.println("执行同步更新便签成功,更新数量："+updateCount);
             return (int)note.getId();

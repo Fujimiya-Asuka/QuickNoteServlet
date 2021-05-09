@@ -1,7 +1,6 @@
 package com.asuka.service;
 
 import com.asuka.domain.Note;
-import com.asuka.domain.ResponseSyncToDoMessage;
 import com.asuka.domain.ToDo;
 import com.asuka.utils.Dao;
 import com.google.gson.Gson;
@@ -175,7 +174,7 @@ public class Sync {
         }else {
             response.setHeader("resultCode",""+0);
         }
-        response.setHeader("todoID",""+noteID);
+        response.setHeader("noteID",""+noteID);
         response.setHeader("modify",""+(dbMaxModify+1));
 //        PrintWriter writer = response.getWriter();
 //        int returnModify = dbMaxModify+1;
@@ -242,7 +241,7 @@ public class Sync {
         }else {
             response.setHeader("resultCode",""+0);
         }
-        response.setHeader("todoID",""+noteID);
+        response.setHeader("noteID",""+noteID);
     }
 
 
