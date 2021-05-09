@@ -16,7 +16,7 @@ public class registerServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        System.out.println("register_doPost");
+        System.out.println("\nregister_doPost");
         //设置编码，防止乱码
         resp.setCharacterEncoding("utf-8");
 
@@ -25,6 +25,7 @@ public class registerServlet extends HttpServlet {
         System.out.println("允许注册？: "+ b );
         PrintWriter writer = resp.getWriter();
         if (b){
+            new Dao().createTable(user.getUsername());
             writer.write(new Gson().toJson(new Response(1,"注册成功")));
         }else {
             writer.write(new Gson().toJson(new Response(0,"注册失败")));

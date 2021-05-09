@@ -16,14 +16,14 @@ import java.io.PrintWriter;
 
 //登录
 @WebServlet("/login")
-public class loginServlet extends HttpServlet {
+public class loginServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("login_doPost");
+        System.out.println("\nlogin_doPost");
         //设置编码，防止乱码
         resp.setCharacterEncoding("utf-8");
         User user = HandleRequestUser.getUser(req);
-        Boolean b = new Dao().findUser(user.getUsername(),user.getPassword());
+        Boolean b = new Dao().login(user.getUsername(),user.getPassword());
         System.out.println("允许登录？: "+ b );
         PrintWriter writer = resp.getWriter();
         if (b){
