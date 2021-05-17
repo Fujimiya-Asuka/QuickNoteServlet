@@ -27,12 +27,15 @@ public class uploadImageServlet extends HttpServlet {
         //设置编码
         request.setCharacterEncoding("UTF-8");
         //获取请求用户名
-        String userName = request.getParameter("userName");
-        String noteID = request.getParameter("noteID");
+//        String userName = request.getParameter("userName");
+        String userName = request.getHeader("user");
+
+//        String noteID = request.getParameter("noteID");
+        String noteID = request.getHeader("noteID");
         //获取part对象
         Part part = request.getPart("upFile");
         //获取上传文件名
-        String fileName = "noteID"+"_"+noteID+"_"+part.getSubmittedFileName();
+        String fileName = part.getSubmittedFileName();
         System.out.println(fileName);
         //获取对应上传文件夹的真实路径
         String realPath = request.getServletContext().getRealPath("/image/"+userName+"/");
